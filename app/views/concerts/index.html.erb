@@ -1,0 +1,9 @@
+<h1>UPCOMING CONCERTS</h1>
+<% @concerts.each do |concert| %>
+<%= concert.performer %> - <%= concert.location %> - <%= concert.date %> 
+<%= link_to "More info", concert_path(concert) %><br>
+<% end %>
+
+
+<h3>BOOK YOUR TICKET!</h3>
+<%= link_to "Book Now", new_ticket_path %>
