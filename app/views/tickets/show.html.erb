@@ -1,0 +1,14 @@
+<h1> Good choice, <%= @ticket.user.username %> </h1>
+<h3>Here are your booking details:</h3>
+<b><%= @ticket.concert.artist.name %><br></b>
+<%= @ticket.concert.location %><br>
+Ticket Category <%= @ticket.category %><br>
+Price <%= @ticket.price %><br>
+Tickets sold <%= @ticket.quantity %><br>
+Your total cost is: <%= @ticket.total_cost %><br>
+With tax: <%= @ticket.total_with_tax %><br>
+
+
+<%= link_to "Edit booking information", edit_ticket_path(@ticket) %>
+<% # this code is the delete  %>
+<%= button_to "Kill me please", ticket_path(@ticket), method: :delete %>
