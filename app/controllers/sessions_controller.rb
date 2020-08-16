@@ -17,10 +17,19 @@ class SessionsController < ApplicationController
     end 
 
     def githubcreate 
+        session[:name] = auth['info']['name']
+        session[:omniauth_data] = auth 
+        redirect_to users_path
     end 
 
     def destroy 
         session.clear 
         redirect_to root_path
+    end 
+
+    private 
+
+    def auth 
+        request.env['omniauth.auth']
     end 
 end
