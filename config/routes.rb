@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :comments
+  resources :tickets
+  resources :concerts
   resources :users
 
   root 'sessions#home'
