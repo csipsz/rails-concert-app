@@ -11,4 +11,4 @@ With tax: <%= @ticket.total_with_tax %><br>
 
 <%= link_to "Edit booking information", edit_ticket_path(@ticket) %>
 <% # this code is the delete  %>
-<%= button_to "Kill me please", ticket_path(@ticket), method: :delete %>
+<%= button_to "Delete Booking", ticket_path(@ticket), method: :delete %>

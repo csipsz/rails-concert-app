@@ -1,1 +1,10 @@
-TICKETS INDEX PAGE
+<div>
+<hr>
+<% @tickets.each do |ticket| %> 
+<%= ticket.owner %> 
+<%= ticket.artist %> 
+<%= ticket.venue %>
+<%= ticket.concert_date %> 
+<hr>
+<% end %>
+</div>

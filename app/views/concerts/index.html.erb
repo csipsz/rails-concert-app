@@ -1,4 +1,13 @@
 <h1>UPCOMING CONCERTS</h1>
+
+
+<%= form_tag('/filter', method: 'get') do %>
+<%= label_tag(:location, "Search for location:") %>
+<%= text_field_tag(:location) %> 
+<%= submit_tag("SEARCH") %>
+<% end %> 
+
+
 <% @concerts.each do |concert| %>
 <%= concert.performer %> - <%= concert.location %> - <%= concert.date %> 
 <%= link_to "More info", concert_path(concert) %><br>
