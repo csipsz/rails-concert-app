@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         @user = User.find_by(username: params[:user][:username])
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id 
-            redirect_to user_path(@user)
+            redirect_to concerts_path
         else 
             redirect_to root_path 
         end 
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     def githubcreate 
         session[:name] = auth['info']['name']
         session[:omniauth_data] = auth 
-        redirect_to users_path
+        redirect_to concerts_path
     end 
 
     def destroy 

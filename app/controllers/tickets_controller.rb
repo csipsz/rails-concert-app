@@ -13,9 +13,11 @@ class TicketsController < ApplicationController
         end 
     
         def create 
+            #byebug
             @ticket = Ticket.new(ticket_params)
             @ticket.user = current_user
             @ticket.set_price
+            @ticket.save
             if @ticket.save 
                 redirect_to ticket_path(@ticket)
             else 

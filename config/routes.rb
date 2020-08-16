@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  resources :comments
-  resources :tickets
-  resources :concerts
-  resources :users
+  
+  resources :concerts do 
+    resources :comments 
+  end 
+
+  resources :users do 
+    resources :tickets
+  end 
 
   root 'sessions#home'
   get '/signup' => 'users#new'

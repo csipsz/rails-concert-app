@@ -1,1 +1,7 @@
-You're in! <%= @user.username %>
+<div>
+<br>
+<%= @user.username %> 
+
+<%= link_to "My Tickets", user_tickets_path(@user) %>
+<%= link_to "Book Ticket", new_user_ticket_path(@user) %>
+</div>
