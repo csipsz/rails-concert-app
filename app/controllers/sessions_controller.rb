@@ -18,9 +18,12 @@ class SessionsController < ApplicationController
     end 
 
     def githubcreate 
-        byebug
-        User.first_or_create(auth)
-        session[:user_id] = user.id
+        @user = User.find_or_create_by(uid: auth[:uid]) do |user|
+            user.username = auth[:info][:nickname]
+            user.email = auth[:info][:nickname] + "@throwaway.com"
+            user.password = SecureRandom.hex
+        end 
+        session[:user_id] = @user.id
         redirect_to concerts_path
     end 
 
