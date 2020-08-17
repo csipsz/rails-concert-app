@@ -11,7 +11,7 @@
 <div><p>
 <%= form_for @comment do |f| %>
 <%= f.label :comment %>
-<%= f.hidden_field :concert_id %>
+<%= concert_id_field(@comment) %>
 <%= f.text_field :content %>
 <%= f.submit %>
 <% end %>
