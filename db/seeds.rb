@@ -15,3 +15,10 @@ Concert.create(capacity: 2500, performer: "Chentron" , location: "Long Island Ha
 Concert.create(capacity: 450, performer: "Majka Papa" , location: "Budapest Park", date: "Aug 23 2020")
 Concert.create(capacity: 250, performer: "Aligator", location: "Michigan Concert Park", date:"10/23/2020")
 Concert.create(capacity: 500, performer: "Nicki Minaj" , location: "Beverly Hills Dog Party", date:"11/17/2020")
+
+Comment.create(user_id: 1, concert_id: 1, content: "cool!")
+Comment.create(user_id: 1, concert_id: 3, content: "cool!")
+Comment.create(user_id: 1, concert_id: 2, content: "cool!")
+Comment.create(user_id: 1, concert_id: 1, content: "cool!")
+Comment.create(user_id: 1, concert_id: 5, content: "cool!")
+Comment.create(user_id: 1, concert_id: 1, content: "cool!")

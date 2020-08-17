@@ -5,6 +5,7 @@
 <%= ticket.artist %> 
 <%= ticket.venue %>
 <%= ticket.concert_date %> 
+<%= link_to "BOOKING DETAILS", user_ticket_path(ticket.user, ticket) %>
 <hr>
 <% end %>
 </div>

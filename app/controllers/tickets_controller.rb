@@ -13,11 +13,8 @@ class TicketsController < ApplicationController
         end 
     
         def create 
-            #byebug
-            @ticket = Ticket.new(ticket_params)
-            @ticket.user = current_user
+            @ticket = current_user.tickets.build(ticket_params)
             @ticket.set_price
-            @ticket.save
             if @ticket.save 
                 redirect_to ticket_path(@ticket)
             else 
@@ -54,7 +51,7 @@ class TicketsController < ApplicationController
         end 
     
         def ticket_params
-            params.require(:ticket).permit(:category, :quantity, :user_id, :concert_id)
+            params.require(:ticket).permit(:category, :quantity, :concert_id)
         end 
     
     end

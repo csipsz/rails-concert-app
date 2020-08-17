@@ -1,4 +1,20 @@
 <div>
-MORE INFO ON CONCERT<br>
+<h1><%= @concert.performer %></h1>
+<h2><%= @concert.location %></h2>
 SEATS AVAILABLE: <%= @concert.remaining_tickets %>
+</div>
+
+<div>
+<p>COMMENTS</p>
+<% @concert.comments.each do |comment| %> 
+<%= comment.user.username %> says <%= comment.content %><br>
+<%= comment.created_at %><br>
+<% end %> 
+</div>
+
+<p><%= link_to "BOOK TICKET", new_user_ticket_path(current_user) %>
+
+
+<div>
+<p>ADD A COMMENT</p>
 </div>
