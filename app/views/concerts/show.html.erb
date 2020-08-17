@@ -7,7 +7,7 @@ SEATS AVAILABLE: <%= @concert.remaining_tickets %>
 <div>
 <p>COMMENTS</p>
 <% @concert.comments.each do |comment| %> 
-<%= comment.user.username %> says <%= comment.content %><br>
+<%= comment.try(:user).try(:username)%> says <%= comment.content %><br>
 <%= comment.created_at %><br>
 <% end %> 
 </div>
@@ -16,5 +16,6 @@ SEATS AVAILABLE: <%= @concert.remaining_tickets %>
 
 
 <div>
-<p>ADD A COMMENT</p>
+<p><%= link_to "ADD A COMMENT", new_concert_comment_path(@concert) %></p>
+
 </div>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :tickets
   end 
 
+  resources :comments
   resources :tickets
 
   root 'sessions#home'
