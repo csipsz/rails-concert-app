@@ -18,8 +18,9 @@ class SessionsController < ApplicationController
     end 
 
     def githubcreate 
-        session[:name] = auth['info']['name']
-        session[:omniauth_data] = auth 
+        byebug
+        User.first_or_create(auth)
+        session[:user_id] = user.id
         redirect_to concerts_path
     end 
 

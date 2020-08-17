@@ -1,6 +1,7 @@
 class ConcertsController < ApplicationController
     before_action :require_login
     
+    
     def index 
         @concerts = Concert.all 
     end 
