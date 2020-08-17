@@ -27,6 +27,9 @@ class TicketsController < ApplicationController
         end 
     
         def edit 
+            if @ticket.user != current_user
+                redirect_to tickets_path 
+            end 
         end 
     
         def update 
@@ -40,8 +43,8 @@ class TicketsController < ApplicationController
         end 
     
         def destroy 
-            @ticket.destroy 
-            redirect_to  tickets_path
+            @ticket.destroy if @ticket.user == current_user
+            redirect_to tickets_path
         end 
     
     

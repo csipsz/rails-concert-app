@@ -1,6 +1,7 @@
 class Ticket < ApplicationRecord
     belongs_to :user
     belongs_to :concert
+    validates :quantity, inclusion: {in: 1..6}
 
     def set_price
         self.price = self.category * 7

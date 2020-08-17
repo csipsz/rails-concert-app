@@ -1,12 +1,4 @@
-
-<% if @comment.errors.any? %>
-<div id="error_messages">
-<% @comment.errors.full_messages.each do |message| %>
-    <%= message %><br>
-    <p> Please comment on an existing concert</p>
-<% end %>
-</div>
-<% end %>
+<%= render partial: 'layouts/error', locals: {object: @comment} %>
 
 <div><p>
 <%= form_for @comment do |f| %>
