@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-
+    before_action :require_login
     def index 
         if params[:concert_id]
             @comments = Concert.find(params[:concert_id]).comments
@@ -20,6 +20,12 @@ class CommentsController < ApplicationController
         else 
             render :new 
         end 
+      end 
+
+      def destroy 
+        @comment = Comment.find_by_id(params[:id])
+        @comment.delete
+        redirect_to concert_path(@comment.concert)
       end 
     
       private

@@ -1,1 +1,21 @@
+<% if @ticket.errors.any? %>
+<div id="error_messages">
+<% @ticket.errors.full_messages.each do |message| %>
+    <%= message %><br>
+<% end %>
+</div>
+<% end %>
+
+
 Ticket edit page 
+<%= form_for @ticket do |f|%>
+
+<%= f.label :category %>
+<%= f.select :category, [1, 2, 3, 4]%>
+
+<%= f.label :quantity %>
+<%= f.select :quantity, [1, 2, 3, 4, 5, 6]%>
+
+<%= f.collection_select :concert_id, Concert.all, :id, :performer, include_blank: "Select Concert" %>
+<%= f.submit %>
+<% end %>

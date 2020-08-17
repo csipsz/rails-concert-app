@@ -1,5 +1,6 @@
 class TicketsController < ApplicationController
         before_action :set_ticket, only: [:show, :edit, :update, :destroy]
+        before_action :require_login
         def index 
             if params[:user_id]
                 @tickets = User.find(params[:user_id]).tickets 
@@ -30,7 +31,7 @@ class TicketsController < ApplicationController
     
         def update 
             @ticket.update(ticket_params)
-            @ticket.user_id = current_user
+            @ticket.user = current_user
             if @ticket.save 
                 redirect_to ticket_path(@ticket)
             else 
