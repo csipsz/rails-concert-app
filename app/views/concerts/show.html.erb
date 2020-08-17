@@ -7,11 +7,9 @@ SEATS AVAILABLE: <%= @concert.remaining_tickets %>
 <div>
 <p>COMMENTS</p>
 <% @concert.comments.each do |comment| %> 
-<%= comment.try(:user).try(:username)%> says <%= comment.content %><br>
+<%= comment.commenter%> says <%= comment.content %><br>
 <%= comment.created_at %><br>
-<% if comment.user == current_user %>
-<%= button_to "Delete Comment", comment_path(comment), method: :delete %>
-<% end %>
+<%= show_delete comment %>
 <% end %> 
 </div>
 
