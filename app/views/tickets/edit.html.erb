@@ -2,4 +2,4 @@
 
 <%= render partial: 'layouts/error', locals: {object: @ticket} %>
 
-<%= render 'form' %>
+<%= render partial: 'form', locals: {ticket: @ticket} %>

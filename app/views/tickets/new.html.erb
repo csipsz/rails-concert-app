@@ -1,14 +1,4 @@
 <%= render partial: 'layouts/error', locals: {object: @ticket} %>
 
 <h1>Book Ticket</h1>
-<%= form_for @ticket do |f|%>
-
-<%= f.label :category %>
-<%= f.select :category, [1, 2, 3, 4, 5]%>
-
-<%= f.label :quantity %>
-<%= f.select :quantity, [1, 2, 3, 4, 5, 6]%>
-
-<%= f.collection_select :concert_id, Concert.all, :id, :performer, include_blank: "Select Concert" %>
-<%= f.submit %>
-<% end %>
+<%= render partial: 'form', locals: {ticket: @ticket} %>
