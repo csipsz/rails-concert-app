@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
-  
+
+  resources :comments
+  resources :tickets
+
   resources :concerts, only: [:show, :index] do 
-    resources :comments 
+    resources :comments, only: [:index, :new, :create, :destroy]
   end 
 
   resources :users, only: [:new, :create, :destroy] do 
     resources :tickets
   end 
-
-  resources :comments
-  resources :tickets
 
   root 'sessions#home'
   get '/signup' => 'users#new'

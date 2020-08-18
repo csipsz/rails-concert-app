@@ -2,9 +2,12 @@ class CommentsController < ApplicationController
     before_action :require_login
     def index 
         if params[:concert_id]
-            @comments = Concert.find(params[:concert_id]).comments
+            @concert = Concert.find(params[:concert_id])
+            @comments = @concert.comments
+            redirect_to concert_path(@concert)
           else
-            @comments = Comment.all
+            #@comments = Comment.all
+            redirect_to concerts_path
         end 
     end 
 

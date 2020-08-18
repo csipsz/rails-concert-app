@@ -1,7 +1,7 @@
 <h1><%= @ticket.owner %>, </h1>
 <h3>Here are your booking details:</h3>
 
-<b><%= @ticket.artist %><br></b>
+<b><%= link_to @ticket.artist, concert_path(@ticket.concert) %><br></b>
 <%= @ticket.venue %><br>
 Ticket Category <%= @ticket.category %><br>
 Price <%= @ticket.price %><br>
