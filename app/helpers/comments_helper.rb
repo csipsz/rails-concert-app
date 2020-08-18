@@ -14,4 +14,8 @@ module CommentsHelper
         end
     end 
 
+    def pretty_time(comment)
+        comment.created_at.strftime("On %A, %d %b %Y, at %l:%M %p")
+    end 
+
 end

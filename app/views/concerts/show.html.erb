@@ -7,8 +7,9 @@ SEATS AVAILABLE: <%= @concert.remaining_tickets %>
 <div>
 <p>COMMENTS</p>
 <% @concert.comments.each do |comment| %> 
-<%= comment.commenter%> says <%= comment.content %><br>
-<%= comment.created_at %><br>
+<b><%= comment.commenter%> said:<br> 
+<%= comment.content %><br></b>
+<%= pretty_time comment %><br>
 <%= show_delete comment %>
 <% end %> 
 </div>

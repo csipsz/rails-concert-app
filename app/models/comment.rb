@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
     belongs_to :concert
-    belongs_to :user, optional: true
+    belongs_to :user
     validates :content, length: {minimum: 3}
 
     def commenter 
