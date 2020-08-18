@@ -19,4 +19,8 @@ class Concert < ApplicationRecord
     def concert_info 
         "#{self.performer} - #{self.location}"
     end 
+
+    def attendees
+        self.users.map{|u| u.username}.uniq!
+    end 
 end

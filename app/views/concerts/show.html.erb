@@ -14,6 +14,11 @@ SEATS AVAILABLE: <%= @concert.remaining_tickets %>
 <% end %> 
 </div>
 
+<p>PEOPLE ATTENDING:</p>
+<% @concert.attendees.each do |attendee| %>
+<p><%= attendee %></p> 
+<% end %>
+
 <p><%= link_to "BOOK TICKET", new_user_ticket_path(current_user) %>
 
 
