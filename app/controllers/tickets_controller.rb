@@ -29,7 +29,7 @@ class TicketsController < ApplicationController
     
         def edit 
             if @ticket.user != current_user
-                redirect_to tickets_path 
+                redirect_to user_tickets_path(current_user)
             end 
         end 
     
