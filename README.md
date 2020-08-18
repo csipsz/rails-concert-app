@@ -1,5 +1,11 @@
 # README
 
+This is a concert ticket booking application built with the Ruby on Rails framework.
+Rails version: 6.0.3.2
+It has the core functionality to fulfill the project requirements but is still under development.
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
