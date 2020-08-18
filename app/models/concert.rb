@@ -21,6 +21,6 @@ class Concert < ApplicationRecord
     end 
 
     def attendees
-        self.users.map{|u| u.username}.uniq!
+        self.users.map{|u| u.username}.uniq
     end 
 end

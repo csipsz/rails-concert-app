@@ -9,7 +9,7 @@ SEATS AVAILABLE: <%= @concert.remaining_tickets %>
 <% @concert.comments.each do |comment| %> 
 <b><%= comment.commenter%> said:<br> 
 <%= comment.content %><br></b>
-<%= pretty_time comment %><br>
+<%= pretty_time comment %> <%= link_to "◖ᵔᴥᵔ◗ ♪ ♫", concert_comment_path(@concert, comment) %><br>
 <%= show_delete comment %>
 <% end %> 
 </div>

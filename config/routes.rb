@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :tickets
 
   resources :concerts, only: [:show, :index] do 
-    resources :comments, only: [:index, :new, :create, :destroy]
+    resources :comments, only: [:index, :new, :create, :destroy, :show]
   end 
 
   resources :users, only: [:new, :create, :destroy] do 

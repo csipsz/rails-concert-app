@@ -15,6 +15,10 @@ class CommentsController < ApplicationController
         @comment = Comment.new(concert_id: params[:concert_id])
     end 
 
+    def show 
+      @comment = Comment.find_by_id(params[:id])
+    end 
+
     def create 
         @comment = Comment.create(comment_params)
         @comment.user = current_user 

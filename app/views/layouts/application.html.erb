@@ -10,14 +10,13 @@
   </head>
 
   <body>
-  <% if logged_in? %>
-  <%= link_to "LOGOUT", logout_path, method: :delete %>
-  <%= link_to "CONCERTS", concerts_path %>
-  <%= link_to "ADD COMMENT", new_comment_path %>
-  <%= link_to "BOOK TICKET", new_ticket_path %>
-  <%= link_to "MY TICKETS", user_tickets_path(current_user) %>
-
-  <% end %>
+    <% if logged_in? %>
+      <%= link_to "LOGOUT", logout_path, method: :delete %>
+      <%= link_to "CONCERTS (っ•́｡•́)♪♬", concerts_path %>
+      <%= link_to "ADD COMMENT", new_comment_path %>
+      <%= link_to "BOOK TICKET", new_ticket_path %>
+      <%= link_to "MY TICKETS", user_tickets_path(current_user) %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
