@@ -4,6 +4,7 @@ class Concert < ApplicationRecord
     has_many :users, through: :tickets
 
     validates :performer, :location, :date, presence: true
+    validates :location, uniqueness: { scope: %i[performer]}
 
     scope :order_by_name, -> {order(:performer)}
     scope :search_by_location, -> (chosen_location){where("location = ?", chosen_location)}

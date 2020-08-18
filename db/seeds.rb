@@ -15,3 +15,11 @@ Concert.create(capacity: 2500, performer: "Chentron" , location: "Long Island Ha
 Concert.create(capacity: 450, performer: "Majka Papa" , location: "Budapest Park", date: "Aug 23 2020")
 Concert.create(capacity: 250, performer: "Aligator", location: "Michigan Concert Park", date:"10/23/2020")
 Concert.create(capacity: 500, performer: "Nicki Minaj" , location: "Beverly Hills Dog Party", date:"11/17/2020")
+
+
+Concert.create(capacity: 250, performer: "Slipknot", location: "Iowa Festival", date: "Aug 23 2020")
+Concert.create(capacity: 250, performer: "Slipknot", location: "Iowa Festival", date: "Aug 23 2020")
+Concert.create(capacity: 250, performer: "Slipknot", location: "Iowa Festival", date: "Aug 23 2020")
+Concert.create(capacity: 250, performer: "Slipknot", location: "Idaho Festival", date: "Aug 23 2020")
+Concert.create(capacity: 250, performer: "Slipknot", location: "Colorado Festival", date: "Aug 23 2020")
+Concert.create(capacity: 250, performer: "Slipknot", location: "Pepsi Festival", date: "Aug 23 2020")
