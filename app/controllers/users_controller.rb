@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+    before_action :require_login, except: [:new, :create] 
     def new 
         @user = User.new 
     end 
@@ -12,10 +12,6 @@ class UsersController < ApplicationController
         else 
             render :new 
         end 
-    end 
-
-    def show 
-        @user = User.find_by_id(params[:id])
     end 
 
     private 

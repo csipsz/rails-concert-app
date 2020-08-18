@@ -5,7 +5,8 @@ class TicketsController < ApplicationController
             if params[:user_id]
                 @tickets = User.find(params[:user_id]).tickets 
             else 
-                @tickets = Ticket.all
+                #@tickets = Ticket.all
+                redirect_to concerts_path
             end 
         end 
     
@@ -44,7 +45,7 @@ class TicketsController < ApplicationController
     
         def destroy 
             @ticket.destroy if @ticket.user == current_user
-            redirect_to tickets_path
+            redirect_to user_tickets_path(current_user)
         end 
     
     

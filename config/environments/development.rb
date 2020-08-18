@@ -11,6 +11,7 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
+  #I CAN SET THIS false SO IT DOESN'T GIVE AWAY ALL OF MY ROUTING INFO
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
