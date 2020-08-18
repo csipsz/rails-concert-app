@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
     before_action :require_login
+    before_action :set_comment, only: [:show, :destroy]
     def index 
         if params[:concert_id]
             @concert = Concert.find(params[:concert_id])
@@ -16,7 +17,6 @@ class CommentsController < ApplicationController
     end 
 
     def show 
-      @comment = Comment.find_by_id(params[:id])
     end 
 
     def create 
@@ -30,7 +30,6 @@ class CommentsController < ApplicationController
       end 
 
       def destroy 
-        @comment = Comment.find_by_id(params[:id])
         @comment.delete
         redirect_to concert_path(@comment.concert)
       end 
@@ -40,5 +39,9 @@ class CommentsController < ApplicationController
       def comment_params
         params.require(:comment).permit(:content, :concert_id)
       end
+
+      def set_comment 
+        @comment = Comment.find_by_id(params[:id])
+      end 
 
 end
