@@ -6,6 +6,10 @@ class SessionsController < ApplicationController
         @user = User.new 
     end 
 
+    def newartist 
+        @artist = Artist.new 
+    end 
+
     def create 
         @user = User.find_by(username: params[:user][:username])
         if @user && @user.authenticate(params[:user][:password])
@@ -14,6 +18,17 @@ class SessionsController < ApplicationController
         else 
             flash[:error] = "Invalid login credentials"
             redirect_to login_path 
+        end 
+    end 
+
+    def createartist
+        @artist = Artist.find_by(artist_name: params[:artist][:artist_name])
+        if @artist && @artist.authenticate(params[:artist][:password])
+            session[:artist_id] = @artist.id 
+            redirect_to concerts_path
+        else 
+            flash[:error] = "Invalid login credentials"
+            redirect_to artistlogin_path 
         end 
     end 
 

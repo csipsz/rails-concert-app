@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
 
     def create 
         @comment = Comment.create(comment_params)
-        @comment.user = current_user 
+        @comment.user = current_user
         if @comment.save 
             redirect_to concert_path(@comment.concert)
         else 

@@ -19,10 +19,14 @@ SEATS AVAILABLE: <%= @concert.remaining_tickets %>
 <p><%= attendee %></p> 
 <% end %>
 
+
+<% if logged_in? %>
 <p><%= link_to "BOOK TICKET", new_user_ticket_path(current_user) %>
+<% end %>
 
 
 <div>
+<% if logged_in? || current_artist == @concert.artist %>
 <p><%= link_to "ADD A COMMENT", new_concert_comment_path(@concert) %></p>
-
+<% end %>
 </div>

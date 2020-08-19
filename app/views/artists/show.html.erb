@@ -1,0 +1,13 @@
+<h1>(づ｡◕‿‿◕｡)づ <%= @artist.artist_name.upcase %></h1>
+<h2>Here are your upcoming concerts:</h1>
+
+<% @artist.concerts.each do |concert| %>
+<h4><%= link_to concert.location, concert_path(concert) %></h4>
+SEATS AVAILABLE: <%= concert.remaining_tickets %>
+
+<p>PEOPLE ATTENDING:</p>
+<% concert.attendees.each do |attendee| %>
+<p><%= attendee %></p> 
+<% end %>
+
+<% end %>

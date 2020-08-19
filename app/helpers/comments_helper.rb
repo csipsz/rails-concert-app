@@ -9,9 +9,15 @@ module CommentsHelper
       end
 
     def show_delete(comment) 
-        if comment.user == current_user
-            button_to "Delete Comment", comment_path(comment), method: :delete
+        if current_user && current_user == comment.user
+            add_button(comment)
+        elsif current_artist && comment.concert.artist == current_artist && comment.user == nil
+            add_button(comment)
         end
+    end 
+
+    def add_button(comment)
+      button_to "Delete Comment", comment_path(comment), method: :delete
     end 
 
     def pretty_time(comment)

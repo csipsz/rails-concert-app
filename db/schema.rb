@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_210155) do
+ActiveRecord::Schema.define(version: 2020_08_19_181027) do
+
+  create_table "artists", force: :cascade do |t|
+    t.string "artist_name"
+    t.string "password_digest"
+    t.string "phone_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -21,12 +29,12 @@ ActiveRecord::Schema.define(version: 2020_08_17_210155) do
   end
 
   create_table "concerts", force: :cascade do |t|
-    t.string "performer"
     t.string "location"
     t.string "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "capacity"
+    t.integer "artist_id"
   end
 
   create_table "tickets", force: :cascade do |t|

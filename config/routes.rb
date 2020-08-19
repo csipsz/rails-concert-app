@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :artists
   resources :comments
   resources :tickets
 
-  resources :concerts, only: [:show, :index] do 
+  resources :concerts, only: [:show, :index, :new, :create] do 
     resources :comments, only: [:index, :new, :create, :destroy, :show]
   end 
 
@@ -15,6 +16,8 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
+  get '/artistlogin' => 'sessions#newartist'
+  post '/artistlogin' => 'sessions#createartist'
   delete '/logout' => 'sessions#destroy'
 
   get '/filter' => 'concerts#filter'

@@ -16,4 +16,26 @@ class ConcertsController < ApplicationController
         @concert = Concert.find_by_id(params[:id])
     end 
 
+    def new 
+        @concert = Concert.new
+        @concert.comments.build(content: "add a comment")
+    end 
+
+    def create 
+        @concert = Concert.new(concert_params)
+        @concert.artist = current_artist
+        if @concert.save 
+            redirect_to concert_path(@concert)
+        else 
+            render :new 
+        end 
+    end 
+
+
+    private 
+
+    def concert_params
+        params.require(:concert).permit(:location, :capacity, :date, comments_attributes: [:content])
+    end 
+
 end

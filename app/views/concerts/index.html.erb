@@ -7,12 +7,12 @@
 <%= submit_tag("SEARCH") %>
 <% end %> 
 
-
 <% @concerts.each do |concert| %>
 <%= concert.performer %> - <%= concert.location %> - <%= concert.date %> 
 <%= link_to "More info", concert_path(concert) %><br>
 <% end %>
 
-
+<% if logged_in? %>
 <h3>BOOK YOUR TICKET!</h3>
 <%= link_to "BOOK NOW", new_user_ticket_path(current_user) %>
+<% end %>
