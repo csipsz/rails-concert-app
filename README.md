@@ -6,6 +6,8 @@ It has the core functionality to fulfill the project requirements but is still u
 
 SWITCHED TO artist branch
 
+yep
+
 
 
 This README would normally document whatever steps are necessary to get the
