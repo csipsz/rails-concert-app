@@ -4,6 +4,8 @@ This is a concert ticket booking application built with the Ruby on Rails framew
 Rails version: 6.0.3.2
 It has the core functionality to fulfill the project requirements but is still under development.
 
+SWITCHED TO artist branch
+
 
 
 This README would normally document whatever steps are necessary to get the
