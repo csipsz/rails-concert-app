@@ -8,6 +8,8 @@ module CommentsHelper
         end
       end
 
+      #if you comment out the && comment.user == nil part that enables the artist to delete unwanted comments
+      #which is something you might want
     def show_delete(comment) 
         if current_user && current_user == comment.user
             add_button(comment)

@@ -1,5 +1,6 @@
 class ConcertsController < ApplicationController
     before_action :require_login
+    before_action :set_concert, only: [:show, :destroy]
     
     def index 
         @concerts = Concert.all 
@@ -13,7 +14,7 @@ class ConcertsController < ApplicationController
     end 
 
     def show 
-        @concert = Concert.find_by_id(params[:id])
+        
     end 
 
     def new 
@@ -31,8 +32,16 @@ class ConcertsController < ApplicationController
         end 
     end 
 
+    def destroy 
+        @concert.destroy
+        redirect_to artist_path(@concert.artist)
+    end 
 
     private 
+
+    def set_concert
+        @concert = Concert.find_by_id(params[:id])
+    end 
 
     def concert_params
         params.require(:concert).permit(:location, :capacity, :date, comments_attributes: [:content])

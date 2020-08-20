@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :comments
   resources :tickets
 
-  resources :concerts, only: [:show, :index, :new, :create] do 
+  resources :concerts, except: [:edit, :update] do 
     resources :comments, only: [:index, :new, :create, :destroy, :show]
   end 
 
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get '/filter' => 'concerts#filter'
   
   match '/auth/github/callback', to: 'sessions#githubcreate', via: [:get, :post]
-
+  # omniauth callback
   match '*a' => 'concerts#index', via: [:get]
   #this route redirects to my concerts wall in some cases when the url doesn't exist because there is no route for it
 

@@ -1,6 +1,6 @@
 class Concert < ApplicationRecord
     belongs_to :artist
-    has_many :tickets
+    has_many :tickets, :dependent => :destroy
     has_many :users, through: :tickets
     has_many :comments 
     accepts_nested_attributes_for :comments

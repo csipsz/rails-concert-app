@@ -5,9 +5,16 @@
 <h4><%= link_to concert.location, concert_path(concert) %></h4>
 SEATS AVAILABLE: <%= concert.remaining_tickets %>
 
-<p>PEOPLE ATTENDING:</p>
-<% concert.attendees.each do |attendee| %>
-<p><%= attendee %></p> 
+<p><b>YOUR BOOKINGS:</b></p>
+<% earnings = 0 %>
+<% concert.tickets.each do |ticket| %>
+<p><%= "#{ticket.owner} bought #{pluralize(ticket.quantity, "ticket")} with the price category of #{ticket.category}" %><p>
+<% earnings += ticket.total_with_tax %>
 <% end %>
+<b><p><%= "Your current income is $#{earnings}" %></p></b>
+
+
+<%= link_to "CANCEL CONCERT", concert_path(concert), method: :delete %>
+
 
 <% end %>
