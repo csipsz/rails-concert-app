@@ -9,7 +9,7 @@ class Concert < ApplicationRecord
     validates :artist_id, :location, :date, :capacity, presence: true
     validates :location, uniqueness: { scope: %i[artist_id]}
 
-    scope :order_by_name, -> {order(:artist_id)}
+    scope :order_by_name, -> {order(:artist_id)}  ###JUST REALIZED THIS ONE IS BROKEN IN THE NEW ONE, IT ORGANIZES BY ARTIST_ID
     scope :search_by_location, -> (chosen_location){where("location = ?", chosen_location)}
 
     def remaining_tickets 
@@ -20,7 +20,7 @@ class Concert < ApplicationRecord
     end 
 
     def concert_info 
-        "#{self.artist.artist_name} - #{self.location}"
+        "#{self.performer} - #{self.location}"
     end 
 
     def attendees

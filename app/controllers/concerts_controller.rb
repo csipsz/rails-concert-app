@@ -14,7 +14,7 @@ class ConcertsController < ApplicationController
     end 
 
     def show 
-        
+        @comment = Comment.new(concert: set_concert)
     end 
 
     def new 

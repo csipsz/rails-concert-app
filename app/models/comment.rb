@@ -5,7 +5,7 @@ class Comment < ApplicationRecord
     validates :content, length: {minimum: 3}
 
     def commenter_artist 
-        self.concert.artist.artist_name
+        self.concert.performer
     end 
 
     def commenter_user 

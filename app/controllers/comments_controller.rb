@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     end 
 
     def new 
-        @comment = Comment.new(concert_id: params[:concert_id])
+      @comment = Comment.new(concert_id: params[:concert_id])
     end 
 
     def show 

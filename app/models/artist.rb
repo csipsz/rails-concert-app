@@ -6,4 +6,6 @@ class Artist < ApplicationRecord
     validates :artist_name, presence: true, uniqueness: true
     validates :phone_number, presence: true, numericality: true, length: {is: 10}
 
+    #CAN I TOSS EXTRA VALIDATION ON TOP OF THE HAS SECURE PASSWORD MACRO?
+
 end

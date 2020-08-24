@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :tickets
 
   resources :concerts, except: [:edit, :update] do 
-    resources :comments, only: [:index, :new, :create, :destroy, :show]
-  end 
+    resources :comments, only: [:index, :new,  :show]
+  end #:create, :destroy, no need for them in nested comments routes
 
   resources :users, only: [:new, :create, :destroy] do 
     resources :tickets
@@ -26,5 +26,6 @@ Rails.application.routes.draw do
   # omniauth callback
   match '*a' => 'concerts#index', via: [:get]
   #this route redirects to my concerts wall in some cases when the url doesn't exist because there is no route for it
+  #but I don't think that it is good practice at all
 
 end

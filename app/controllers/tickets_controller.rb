@@ -15,8 +15,9 @@ class TicketsController < ApplicationController
         end 
     
         def create 
+            
             @ticket = current_user.tickets.build(ticket_params)
-            @ticket.set_price
+                @ticket.set_price
             if @ticket.save 
                 redirect_to ticket_path(@ticket)
             else 

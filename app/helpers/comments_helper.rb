@@ -1,15 +1,14 @@
 module CommentsHelper
 
     def concert_id_field(comment)
-        if comment.concert.nil?
+        if comment.concert.nil? && current_user
           select_tag "comment[concert_id]", options_from_collection_for_select(Concert.all, :id, :concert_info)
         else
           hidden_field_tag "comment[concert_id]", comment.concert_id
         end
       end
 
-      #if you comment out the && comment.user == nil part that enables the artist to delete unwanted comments
-      #which is something you might want
+      #if you comment out the && comment.user == nil part that enables the artist to delete unwanted comments of evil users
     def show_delete(comment) 
         if current_user && current_user == comment.user
             add_button(comment)
